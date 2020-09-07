@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  ecml-acer-experiments:
+  acerac-experiments:
     build: .
     volumes:
       - ../:/acerac
