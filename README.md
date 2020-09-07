@@ -33,14 +33,14 @@ python run.py {args...}
 ## Example runs
 
 ```shell script
-python acer/run.py --algo acer --env_name Pendulum-v0 --gamma 0.95 \
+python acerac/run.py --algo acer --env_name Pendulum-v0 --gamma 0.95 \
     --lam 0.9 --b 3 --c 1 --actor_lr 0.001 --learning_starts 1000 --critic_lr 0.002  \
     --actor_layers 20 --critic_layers 50 --memory_size 1000000 \
     --num_parallel_envs 10  --actor_beta_penalty 0.1 --batches_per_env 25
 ```
 
 ```shell script
-python3.7 acer/run.py --algo acerac --env_name HalfCheetahBulletEnv-v0 \
+python3.7 acerac/run.py --algo acerac --env_name HalfCheetahBulletEnv-v0 \
     --gamma 0.99 --lam 0.9 --b 2 --learning_starts 1000 --c 1 --actor_lr 0.00003 --critic_lr 0.00006 \
     --actor_layers 256 256  --critic_layers 256 256 --memory_size 1000000 \
     --num_parallel_envs 1 --actor_beta_penalty 0.001 --batches_per_env 256 \
