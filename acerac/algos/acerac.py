@@ -175,7 +175,7 @@ class ACERAC(BaseACERAgent):
             return NoiseGaussianActor(
                 self._observations_space, self._actions_space, self._actor_layers,
                 self._actor_beta_penalty, self._actions_bound, self._tau, self._alpha, self._num_parallel_envs,
-                'autocor', self._std, self._tf_time_step
+                self._std, self._tf_time_step
             )
 
     def _init_critic(self) -> Critic:
