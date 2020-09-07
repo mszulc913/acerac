@@ -3,5 +3,5 @@ services:
   ecml-acer-experiments:
     build: .
     volumes:
-      - ../:/acer
+      - ../:/acerac
     runtime: nvidia
