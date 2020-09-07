@@ -25,7 +25,7 @@ class BaseActor(ABC, tf.keras.Model):
     def __init__(
         self, observations_space: gym.Space, actions_space: gym.Space, layers: Optional[Tuple[int]],
         beta_penalty: float, tf_time_step: tf.Variable, *args, **kwargs
-):
+    ):
         """Abstract Actor.
 
         Args:
@@ -267,13 +267,13 @@ class GaussianActor(BaseActor):
     def __init__(
         self, observations_space: gym.Space, actions_space: gym.Space, layers: Optional[Tuple[int]],
         beta_penalty: float, actions_bound: float, std: float = None, *args, **kwargs
-):
+    ):
         """Actor for continuous actions space. Uses MultiVariate Gaussian Distribution as policy distribution.
 
         Args:
             observations_dim: Dimension of the observations space.
             layers: List of hidden layer sizes.
-            beta_penalty: Penalty for too confident actions coefficient
+            beta_penalty: Penalty for too confident actions coefficient.
             actions_bound: Upper (lower == '-actions_bound') bound of allowed actions.
         """
         super().__init__(observations_space, actions_space, layers, beta_penalty, *args, **kwargs)

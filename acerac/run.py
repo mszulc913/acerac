@@ -19,19 +19,19 @@ parser.add_argument(
     required=False, default=None)
 parser.add_argument(
     '--actor_adam_beta1', type=float, help='Beta_1 for ADAM (Actor\'s network).',
-    required=False, default=0.9)
+    required=False, default=None)
 parser.add_argument(
     '--actor_adam_beta2', type=float, help='Beta_2 for ADAM (Actor\'s network).',
-    required=False, default=0.999)
+    required=False, default=None)
 parser.add_argument(
     '--critic_adam_epsilon', type=float, help='Epsilon for ADAM (Critic\'s network).',
     required=False, default=None)
 parser.add_argument(
     '--critic_adam_beta1', type=float, help='Beta_1 for ADAM (Critic\'s network).',
-    required=False, default=0.9)
+    required=False, default=None)
 parser.add_argument(
     '--critic_adam_beta2', type=float, help='Beta_2 for ADAM (Critic\'s network).',
-    required=False, default=0.999)
+    required=False, default=None)
 parser.add_argument(
     '--actor_lr', type=float, help='Actor\'s step size.', required=False, default=3e-5)
 parser.add_argument(
