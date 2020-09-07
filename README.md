@@ -34,9 +34,9 @@ python run.py {args...}
 
 ```shell script
 python acerac/run.py --algo acer --env_name Pendulum-v0 --gamma 0.95 \
-    --lam 0.9 --b 3 --c 1 --actor_lr 0.001 --learning_starts 1000 --critic_lr 0.002  \
+    --lam 0.9 --b 3 --c 10 --actor_lr 0.001 --learning_starts 1000 --critic_lr 0.002  \
     --actor_layers 20 --critic_layers 50 --memory_size 1000000 \
-    --num_parallel_envs 10  --actor_beta_penalty 0.1 --batches_per_env 25
+    --num_parallel_envs 10  --actor_beta_penalty 0.1 --batches_per_env 10
 ```
 
 ```shell script
