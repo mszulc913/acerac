@@ -216,7 +216,7 @@ class CategoricalActor(BaseActor):
         )
         total_loss = tf.reduce_mean(-tf.math.multiply(action_log_probs, d) + penalty)
 
-        entropy maximization penalty
+        # entropy maximization penalty
         entropy = -tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1)
         penalty = self.beta_penalty * (-tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1))
 
