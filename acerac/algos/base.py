@@ -216,10 +216,6 @@ class CategoricalActor(BaseActor):
         )
         total_loss = tf.reduce_mean(-tf.math.multiply(action_log_probs, d) + penalty)
 
-        # entropy maximization penalty
-        entropy = -tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1)
-        penalty = self.beta_penalty * (-tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1))
-
         with tf.name_scope('actor'):
             tf.summary.scalar('batch_entropy_mean', tf.reduce_mean(dist.entropy()), step=self._tf_time_step)
             tf.summary.scalar('batch_loss', total_loss, step=self._tf_time_step)
