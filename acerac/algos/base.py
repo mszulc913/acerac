@@ -180,6 +180,7 @@ class Critic(BaseCritic):
 
 
 class CategoricalActor(BaseActor):
+    
 
     def __init__(self, observations_space: gym.Space, actions_space: gym.Space, layers: Optional[Tuple[int]],
                  *args, **kwargs):
@@ -197,7 +198,6 @@ class CategoricalActor(BaseActor):
     def loss(self, observations: tf.Tensor, actions: tf.Tensor, d: tf.Tensor) -> tf.Tensor:
         logits = self._forward(observations)
 
-        # TODO: remove hardcoded '10' and '20'
         logits_div = tf.divide(logits, 10)
         log_probs = tf.nn.log_softmax(logits_div)
         action_log_probs = tf.expand_dims(
@@ -216,9 +216,9 @@ class CategoricalActor(BaseActor):
         )
         total_loss = tf.reduce_mean(-tf.math.multiply(action_log_probs, d) + penalty)
 
-        # entropy maximization penalty
-        # entropy = -tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1)
-        # penalty = self.beta_penalty * (-tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1))
+        entropy maximization penalty
+        entropy = -tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1)
+        penalty = self.beta_penalty * (-tf.reduce_sum(tf.math.multiply(probs, log_probs), axis=1))
 
         with tf.name_scope('actor'):
             tf.summary.scalar('batch_entropy_mean', tf.reduce_mean(dist.entropy()), step=self._tf_time_step)
@@ -228,7 +228,6 @@ class CategoricalActor(BaseActor):
         return total_loss
 
     def prob(self, observations: tf.Tensor, actions: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
-        # TODO: remove hardcoded '10' and '20'
         logits = tf.divide(self._forward(observations), 10)
         probs = tf.nn.softmax(logits)
         log_probs = tf.nn.log_softmax(logits)
@@ -239,7 +238,6 @@ class CategoricalActor(BaseActor):
     @tf.function
     def act(self, observations: tf.Tensor, **kwargs) -> Tuple[tf.Tensor, tf.Tensor]:
 
-        # TODO: remove hardcoded '10' and '20'
         logits = tf.divide(self._forward(observations), 10)
         probs = tf.nn.softmax(logits)
         log_probs = tf.nn.log_softmax(logits)
@@ -248,7 +246,6 @@ class CategoricalActor(BaseActor):
         actions_probs = tf.gather_nd(probs, actions, batch_dims=1)
 
         with tf.name_scope('actor'):
-            # TODO: refactor
             tf.summary.histogram('action', actions, step=self._tf_time_step)
         return tf.squeeze(actions, axis=[1]), actions_probs
 
@@ -317,7 +314,6 @@ class GaussianActor(BaseActor):
             keepdims=True
         )
         entropy = dist.entropy()
-        # entropy_penalty = 0.01 * entropy
 
         total_loss = tf.reduce_mean(-tf.math.multiply(action_log_probs, d) + bounds_penalty)
 
