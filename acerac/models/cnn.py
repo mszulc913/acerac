@@ -19,7 +19,7 @@ def build_cnn_network(
         initializer: Callable to weights initializer function.
 
     Returns:
-        Created network (list of Keras hidden layers).
+        Created network (list of Keras layers).
     """
     assert len(filters) == len(kernels) == len(strides), \
         f"Layers' specifications must have the same lengths. " \

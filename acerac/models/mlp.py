@@ -16,7 +16,7 @@ def build_mlp_network(
         initializer: Callable to weights initializer function.
 
     Returns:
-        Created network (list of Keras hidden layers)
+        Created network (list of Keras layers)
     """
     layers = [
         tf.keras.layers.Dense(

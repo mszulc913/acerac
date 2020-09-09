@@ -91,7 +91,7 @@ parser.add_argument(
     help='Number of time steps between video recording.')
 parser.add_argument(
     '--synchronous', action='store_true',
-    help='True if not use asynchronous envs')
+    help='Disable asynchronous envs (multiprocessing)')
 
 
 def main():

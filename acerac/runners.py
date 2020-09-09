@@ -80,6 +80,7 @@ class Runner:
             log_dir: Logging directory.
             max_time_steps: Maximum number of training time steps.
             record_end: True if video should be recorded after training.
+            experiment_name: A string that is included in the name of the log directory
             asynchronous: True to use concurrent envs.
             log_tensorboard: True to create TensorBoard logs.
             do_checkpoint: True to save checkpoints over the training.
@@ -146,7 +147,7 @@ class Runner:
                         self._save_checkpoint()
 
             if self._is_time_to_record():
-                self.record_video()
+                self._record_video()
 
             start_time = time.time()
             experience = self._step()
@@ -156,7 +157,7 @@ class Runner:
 
         self._csv_logger.close()
         if self._record_end:
-            self.record_video()
+            self._record_video()
 
     def _save_results(self):
         self._csv_logger.dump()
@@ -250,7 +251,7 @@ class Runner:
             {'time_step': self._time_step, 'eval_return_mean': mean_returns, 'eval_std_mean': std_returns}
         )
 
-    def record_video(self):
+    def _record_video(self):
         if self._record_time_steps:
             self._next_record_timestamp += self._record_time_steps
         logging.info(f"saving video...")
