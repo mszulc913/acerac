@@ -57,7 +57,7 @@ tensorboard --logdir logs
 ```
 in the repository's root directory. The dashboard will be available in the browser under
 the addres http://localhost:6006/
-To disable storing the logs run the *run.py* script with `--no-tensorboard` flag.
+To disable storing the logs run the *run.py* script with `--no_tensorboard` flag.
 
 
 ## References
