@@ -62,15 +62,15 @@ To disable storing the logs run the *run.py* script with `--no_tensorboard` flag
 
 ## References
  
-Marcin Szulc, Jakub Łyskawa, Paweł Wawrzyński,
-*A framework for reinforcement learning with autocorrelated actions.*
-TBA
+Marcin Szulc, Jakub Łyskawa, Paweł Wawrzyński,  
+*A framework for reinforcement learning with autocorrelated actions.*  
+ICONIP2020 | [paper](https://arxiv.org/abs/2009.04777)
  
-Paweł Wawrzyński,
+Paweł Wawrzyński,  
 *Real-time reinforcement learning by sequential actor–critics
-and experience replay.*
+and experience replay.*  
 Neural Networks, 22(10):1484–1497, 2009.
 
-Paweł Wawrzyński and Ajay Kumar Tanwani,
-*Autonomous reinforcement learning with experience replay.*
+Paweł Wawrzyński and Ajay Kumar Tanwani,  
+*Autonomous reinforcement learning with experience replay.*  
 Neural Networks, 41:156-167, 2013.
